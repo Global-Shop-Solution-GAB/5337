@@ -1,0 +1,12 @@
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Intrinsic.Control.If(v.Caller.Switches,=,"T")
+	f.ODBC.Connection!con.Execute("DELETE FROM BI_GL_TBAL")
+f.Intrinsic.UI.Msgbox("Proceso Completado, Puede generar Balance de Comprobacion de Saldos")
+f.ODBC.Connection!con.Close
+F.Intrinsic.Control.EndIF
+Program.Sub.Main.End
